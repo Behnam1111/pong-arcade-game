@@ -24,7 +24,9 @@ screen.onkey(second_player.down, "s")
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
-    ball.move(20)
+    ball.move()
+    if ball.is_collision_with_wall():
+        ball.bounce()
     screen.update()
 
 screen.exitonclick()

@@ -7,8 +7,19 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
+        self.x_move = 10
+        self.y_move = 10
 
-    def move(self, position):
-        new_x = self.xcor() + position
-        new_y = self.ycor() + position
+    def move(self):
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
+
+    def bounce(self):
+        self.y_move *= -1
+
+    def is_collision_with_wall(self):
+        for x_pos in range(-400, 400):
+            if self.distance(x_pos, 300) < 20 or self.distance(x_pos, -300) < 20:
+                return True
+
