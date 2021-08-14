@@ -26,7 +26,11 @@ while game_is_on:
     time.sleep(0.1)
     ball.move()
     if ball.is_collision_with_wall():
-        ball.bounce()
+        ball.bounce_from_wall()
+    # if ball.distance(first_player) < 10 or ball.distance(second_player) < 10:
+        # ball.bounce_from_paddle()
+    if first_player.xcor() - ball.xcor() == 10 or second_player.xcor() - ball.xcor() == -10 :
+        ball.bounce_from_paddle()
     screen.update()
 
 screen.exitonclick()

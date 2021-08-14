@@ -15,8 +15,11 @@ class Ball(Turtle):
         new_y = self.ycor() + self.y_move
         self.goto(new_x, new_y)
 
-    def bounce(self):
+    def bounce_from_wall(self):
         self.y_move *= -1
+
+    def bounce_from_paddle(self):
+        self.x_move *= -1
 
     def is_collision_with_wall(self):
         for x_pos in range(-400, 400):
