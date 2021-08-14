@@ -27,9 +27,8 @@ while game_is_on:
     ball.move()
     if ball.is_collision_with_wall():
         ball.bounce_from_wall()
-    # if ball.distance(first_player) < 10 or ball.distance(second_player) < 10:
-        # ball.bounce_from_paddle()
-    if first_player.xcor() - ball.xcor() == 10 or second_player.xcor() - ball.xcor() == -10 :
+    if ball.distance(first_player) < 50 and ball.xcor() > 325 or\
+            ball.distance(second_player) < 50 and ball.xcor() < -325:
         ball.bounce_from_paddle()
     screen.update()
 
