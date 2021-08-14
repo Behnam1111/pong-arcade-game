@@ -11,6 +11,9 @@ class Paddle(Turtle):
         self.penup()
         self.goto(x_pos, y_pos)
 
+    def restart(self, x_pos, y_pos):
+        self.goto(x_pos, y_pos)
+
     def up(self):
         new_y = self.ycor() + 20
         self.goto(self.xcor(), new_y)
